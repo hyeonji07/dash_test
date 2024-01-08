@@ -136,9 +136,9 @@ fig.update_layout(
 df = px.data.gapminder()
 ```
 
-## Row {height=60%} # <2>
+## Row {height=60%}
 
-```{{python}}  # <3>
+```{python}
 #| title: GDP and Life Expectancy 
 px.scatter(  
   df, x="gdpPercap", y="lifeExp", 
@@ -147,11 +147,11 @@ px.scatter(
   facet_col="continent", log_x=True, size_max=45, 
   range_x=[100,100000], range_y=[25,90] 
 )  
-``` # <3>
+```
 
 ## Row {height=40%}
 
-```{{python}} # <4>
+```{python}
 #| title: Population
 px.area(
   df, x="year", y="pop", 
@@ -159,10 +159,10 @@ px.area(
 )
 ```
 
-```{{python}}
+```{python}
 #| title: Life Expectancy
 px.line(
   df, x="year", y="lifeExp", 
   color="continent", line_group="country"
 )
-``` # <4>
+```
