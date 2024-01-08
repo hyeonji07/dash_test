@@ -128,3 +128,99 @@ fig.update_layout(
     xaxis3_domain=[0.70, 0.95]
 )
 ```
+
+
+# GDP
+
+```{python}
+df = px.data.gapminder()
+```
+
+## Row {height=60%} # <2>
+
+```{{python}}  # <3>
+#| title: GDP and Life Expectancy 
+px.scatter(  
+  df, x="gdpPercap", y="lifeExp", 
+  animation_frame="year", animation_group="country", 
+  size="pop", color="continent", hover_name="country",
+  facet_col="continent", log_x=True, size_max=45, 
+  range_x=[100,100000], range_y=[25,90] 
+)  
+``` # <3>
+
+## Row {height=40%}
+
+```{{python}} # <4>
+#| title: Population
+px.area(
+  df, x="year", y="pop", 
+  color="continent", line_group="country"
+)
+```
+
+```{{python}}
+#| title: Life Expectancy
+px.line(
+  df, x="year", y="lifeExp", 
+  color="continent", line_group="country"
+)
+``` # <4>
+````
+
+1.  The document options define the `title` and `author` for the navigation bar as well as specifying the use of the `dashboard` format.
+2.  Rows and columns are defined using headings. In this example we define two rows and specify their relative sizes using the `height` option.
+3.  Computational cells become cards that live within rows or columns. Cards can have an optional title (which here we specify using the `title` option).
+4.  The second row includes two computational cells, which are automatically split into two side by side cards.
+
+## Getting Started
+
+### Step 1: Install Quarto Pre-Release
+
+Dashboards are a feature in the upcoming 1.4 release of Quarto and are still under active development. Before you get started, make sure you install the **latest pre-release** version of Quarto.
+
+If you are using Quarto within a Python environment you can install the pre-release with `pip` as follows:
+
+```{.bash filename="Terminal"}
+pip install git+https://github.com/quarto-dev/quarto-cli
+```
+
+Alternatively, run the global installer for your platform:
+
+{{< include ../download/_download-pre.md >}}
+
+```{=html}
+<style type="text/css">
+#download-pre-table {
+  display: none;
+}
+</style>
+```
+
+You can find release notes and installers for all platforms at <https://quarto.org/docs/download/prerelease.html>
+
+### Step 2: Learn the Basics
+
+Start by learning how to lay out your dashboard and populate it with content:
+
+[Dashboard Layout](layout.qmd) shows you how to control the navigation bar, and how to arrange your content across pages, rows, columns, tabsets, and cards.
+
+[Data Display](data-display.qmd) shows you how to display data in your dashboard as plots, tables, value boxes, and text.
+
+### Step 3: Explore Further
+
+Once you've mastered the basics, check out these additional articles to learn more.
+
+[Examples](examples/index.qmd) provides a gallery of example dashboards you can use as inspiration for your own.
+
+[Inputs](inputs.qmd) demonstrates various ways to layout inputs for interactive dashboards (sidebars, toolbars, attaching inputs directly to cards, etc.)
+
+[Theming](theming.qmd) describes the various way to customize the fonts, colors, layout and other aspects of dashboard appearance.
+
+[Parameters](parameters.qmd) explains how to create dashboard variants by defining parameters and providing distinct values for them on the command line.
+
+[Deployment](deployment.qmd) covers how to deploy both static dashboards (which require only a web host, but not a server) and Shiny dashboards (which require a Shiny Server).
+
+[Interactivity](interactivity/index.qmd) explores the various ways to create interactive dashboards that enable more flexible data exploration.
+
+
