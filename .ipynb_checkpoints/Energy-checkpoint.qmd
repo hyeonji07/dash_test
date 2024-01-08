@@ -1,7 +1,7 @@
 ---
 title: "대시보드 야매"
-author: "전현지 가보자고"
-format: asciidoc
+author: "전현지"
+format: dashboard
 execute: 
   enabled: true
   cache: false
